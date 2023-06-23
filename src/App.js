@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Input from "./Components/Input"
+import Output from "./Components/Output";
+
+document.addEventListener()
 
 function App() {
+  const[data,setData] = useState([]);
+
+
+  function dataHandler(word){
+    setData((prevData) => [...prevData, word]);
+    console.log("Handle data " + data);
+  }
+
+  function deleteData(dataToDelete) {
+    console.log(dataToDelete + " the data stored as to be deleted");
+    const newList = data.filter((item) => item !== dataToDelete);
+    setData(newList);
+    console.log("Yes this data will be removed");
+    console.log("The data to be deleted is " + newList);
+  }
+
+
+  useEffect(() => {
+    console.log(data); // Verify if the data state is updated correctly
+  }, [data]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Input  dataHandler = {dataHandler} />
+      <Output data = {data} deleteData={deleteData}/>
     </div>
   );
 }

@@ -1,0 +1,45 @@
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: deepskyblue;
+    justify-content: center;
+}
+
+.inputContainer{
+    /* width: 100%; */
+    background-color: #FFEB3B;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+input:focus::placeholder{
+    opacity: 0;
+}
+.buttonContainer{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    background-color: black;
+
+}
+button{
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+input{
+    width: 15rem;
+    border-radius: 5rem;
+    height: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.inputError{
+    text-align: center;
+}

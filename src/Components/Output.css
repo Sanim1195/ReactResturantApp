@@ -1,0 +1,29 @@
+.outputContainer{
+    display: flex;
+    background-color: aqua;
+    justify-content: center;
+    /* width: 70vw; */
+    
+}
+
+ul{
+    /* background-color: black; */
+    /* height: 120px; */
+    width: 50%;
+    list-style: none;
+    padding: 40px   ;
+}
+
+li{
+    background-color: rgb(139, 67, 198,0.9);
+    height: 3rem;
+    margin-bottom: 1rem;  
+    border-radius: 1rem;  
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+li:hover{
+    background-color: rgb(74, 28, 164);
+}
