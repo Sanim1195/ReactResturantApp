@@ -1,0 +1,64 @@
+.navContainer{
+    position: fixed;
+    height: 3rem;
+    background-color: lavenderblush;
+    width: 100vw;
+    z-index: 1;
+}
+
+.navUl{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.navUl>li{
+    list-style: none;
+    flex-grow: 2;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+}
+
+li:hover{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

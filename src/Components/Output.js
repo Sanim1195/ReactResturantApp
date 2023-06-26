@@ -1,5 +1,5 @@
 import "./Output.css";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 
 function Output(props) {
@@ -14,17 +14,17 @@ function Output(props) {
         // generating a unique Id
         const id = uuidv4();
         return (
-           
-                <li
-                    key={id}
-                    onClick={() =>{
-                        itemClickedHandler(item);
-                    } }
-                >
-                    {item}
-                </li>
 
-            
+            <li className="todoList"
+                key={id}
+                onClick={() => {
+                    itemClickedHandler(item);
+                }}
+            >
+                {item}
+            </li>
+
+
         )
     }
 
@@ -33,7 +33,7 @@ function Output(props) {
 
     return (
         <div className="outputContainer">
-            <ul>
+            <ul className="todoUl">
                 {dataList}
             </ul>
         </div>

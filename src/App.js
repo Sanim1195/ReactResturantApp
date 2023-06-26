@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Components/Input"
 import Output from "./Components/Output";
+import Nav from "./Components/Nav";
+import Card from "./Components/shopping/Card";
 
-document.addEventListener()
+// document.addEventListener()
 
 function App() {
   const[data,setData] = useState([]);
@@ -28,8 +30,10 @@ function App() {
 
   return (
     <div className="App">
+      <Nav/>
       <Input  dataHandler = {dataHandler} />
       <Output data = {data} deleteData={deleteData}/>
+      <Card/>
     </div>
   );
 }

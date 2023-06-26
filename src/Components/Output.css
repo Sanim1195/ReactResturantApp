@@ -2,28 +2,33 @@
     display: flex;
     background-color: aqua;
     justify-content: center;
+    /* min-height: 100vh; */
     /* width: 70vw; */
     
 }
 
-ul{
+.todoUl{
     /* background-color: black; */
     /* height: 120px; */
     width: 50%;
     list-style: none;
-    padding: 40px   ;
+    padding: 40px;
+    word-wrap: break-word;
+    
 }
 
-li{
+.todoList{
     background-color: rgb(139, 67, 198,0.9);
-    height: 3rem;
+    /* height: 3rem; */
+    min-height:3rem ;
     margin-bottom: 1rem;  
     border-radius: 1rem;  
     text-align: center;
     padding: 1rem;
     cursor: pointer;
+    font-size: 1.5rem;
 }
 
-li:hover{
-    background-color: rgb(74, 28, 164);
+.todoList:hover{
+    background-color: rgb(162, 116, 255);
 }
