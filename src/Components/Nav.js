@@ -14,8 +14,8 @@ function Nav  () {
                 <li>
                     shop
                 </li>
-                <li>
-                    Cart Items : 0
+                <li className = "cartIcon">
+                    🛒
                 </li>
             </ul>
 
