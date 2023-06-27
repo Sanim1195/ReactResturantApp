@@ -9,19 +9,23 @@
 .navUl{
     display: flex;
     justify-content: center;
+    transition: transform 0.3s;
     /* align-items: center; */
 }
 
 .navUl>li{
+    font-size: 1.5rem;
     list-style: none;
     flex-grow: 2;
     cursor: pointer;
     text-align: center;
-    text-decoration: underline;
+    /* transition: font-size 0.5s; */
+    
 }
 
 li:hover{
-    text-decoration: none;
+    transform: scale(1.3);
+    color: cornflowerblue;
 }
 
 

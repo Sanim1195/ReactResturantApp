@@ -23,7 +23,13 @@ function App() {
     console.log("The data to be deleted is " + newList);
   }
 
+  function addToCartHandler(productInfo){
+    console.log(productInfo)
+  }
 
+  function displayCartItems(cartItems){
+    console.log(cartItems)
+  }
   useEffect(() => {
     console.log(data); // Verify if the data state is updated correctly
   }, [data]);
@@ -33,7 +39,7 @@ function App() {
       <Nav/>
       <Input  dataHandler = {dataHandler} />
       <Output data = {data} deleteData={deleteData}/>
-      <Card/>
+      <Card addToCartHandler= {addToCartHandler}  />
     </div>
   );
 }
