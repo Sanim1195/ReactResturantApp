@@ -5,6 +5,23 @@ import Nav from "./Components/Nav";
 import Card from "./Components/shopping/Card";
 
 // document.addEventListener()
+const TEMP_PRODUCT_DATA = [
+  {
+    id : 1,
+    productName : "Camera",
+    description : "This camera is a retro version of the product and is very good.",
+    price : 99.99
+
+  },
+  {
+    id : 2,
+    productName : "Book",
+    description : "This Book is a retro version of the product and is very good.",
+    price : 29.99
+  }
+]
+
+const CART_ITEM_LIST = []
 
 function App() {
   const[data,setData] = useState([]);
@@ -39,7 +56,7 @@ function App() {
       <Nav/>
       <Input  dataHandler = {dataHandler} />
       <Output data = {data} deleteData={deleteData}/>
-      <Card addToCartHandler= {addToCartHandler}  />
+      <Card addToCartHandler= {addToCartHandler} products ={TEMP_PRODUCT_DATA}  />
     </div>
   );
 }
