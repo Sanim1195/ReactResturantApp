@@ -1,19 +1,20 @@
 import "./Card.css"
-import CartItem from "./CartItem";
+import CardItem from "./CardItem";
 
 
 export default function Card(props) {
+    const addToCartHandler = props.addToCartHandler;
     return (
         <>
+        {/* Div that holds all the cards */}
             <div className="cardContainer">
 
                 {
                     props.products.map(product => {
                         return (
-                            <CartItem product={product} />
+                            <CardItem  key = {product.id} product={product} addToCartHandler={addToCartHandler} />
 
                         )
-
                     })
                 }
             </div >
