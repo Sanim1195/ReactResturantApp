@@ -1,10 +1,24 @@
-import React from 'react';
-import './CartItem.css';
+import React from 'react'
 
-export default function CartItem() {
+export default function cartItem (props) {
     return (
-        <div className='cartItemContainer'>
-            CartItem
+        <div className="cartItem">
+            <div>
+                <img src='' alt={props.productName} />
+
+            </div>
+            <div>
+                <span>
+                    Quantity
+                </span>
+                <span>
+                    {props.cartItems.productName}
+                </span>
+                <span>
+                    {props.cartItems.price}
+                </span>
+            </div>
+
         </div>
     )
 }

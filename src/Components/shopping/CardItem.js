@@ -11,6 +11,8 @@ export default function CardItem(props) {
     const [liked, setLiked] = useState(false);
     const [addedToWatchlist, setAddedToWatchlist] = useState(false);
     const [watchlistVisible, setWatchlistVisible] = useState(false);
+    const [isAddedTocart, setIsAddedToCart] = useState(false);
+    const [isAddedToCartVisible, setIsAddedToCartVisible] = useState(false);
 
 
     // function for heart icons
@@ -33,19 +35,29 @@ export default function CardItem(props) {
 
     function addToCart() {
         props.addToCartHandler(props.product);
+        setIsAddedToCart (true);
+         setIsAddedToCartVisible(true);
         console.log("You have added the following item to your cart: ", props.product)
+        setTimeout(() => {
+            setIsAddedToCartVisible(false)
+        }, 1000);
 
     }
     return (
         <div className="card" key={props.product.id}>
             {
-                addedToWatchlist && watchlistVisible && <div id="watchlist" className="watchListInfo">
+                addedToWatchlist && watchlistVisible && <div className="watchListInfo">
                     ❕Item added to watchlist
                 </div>
             }
             {
                 !addedToWatchlist && watchlistVisible && <div className="watchListInfo">
                     ❕Item removed from watchlist
+                </div>
+            }
+            {
+                isAddedTocart && isAddedToCartVisible && <div className="watchListInfo">
+                    ❕Item added to cart
                 </div>
             }
             {/* Div that holds the image  */}
@@ -64,7 +76,7 @@ export default function CardItem(props) {
             <span>
                 🔽
             </span>
-            
+
             {/* div that holds the heart and cart */}
             <div className="bottomCard">
                 <div className="heart" onClick={watchListHandler}>

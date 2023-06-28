@@ -1,10 +1,18 @@
-
 import { useState } from "react";
 import "./Nav.css";
-import CartItem from "./shopping/CartItem";
+import Cart from "./shopping/Cart";
+
+// @Todo
 
 function Nav(props) {
-    const [isCartListVisible, setIsCartListVisible] = useState(false);
+    const [isCartListVisible, setIsCartListVisible] = useState(false)
+
+    // Controls the visibility of the div that hold the cart items 😁
+    function cartListVisibleHandler(){
+        console.log("cart Clicked !!");
+        setIsCartListVisible(!isCartListVisible);
+    }
+
     return (
         <div className="navContainer">
             <ul className="navUl">
@@ -17,18 +25,24 @@ function Nav(props) {
                 <li>
                     shop
                 </li>
-                {/* <li className="cartIcon" onClick={setIsCartListVisible(!isCartListVisible)}> */}
-                <li className="cartIcon" >
+                <li className="cartIcon" onClick={cartListVisibleHandler}>
+                    <span>
                     🛒 {props.numberOfCartItems}
-                    {/* {
-                        isCartListVisible && <CartItem/>
-                    } */}
+
+                    </span>
                 </li>
             </ul>
 
+            {
+                isCartListVisible && <Cart showCartItems={props.showCartItems}/>
+            }
         </div>
     )
 }
 
 
 export default Nav;
+
+
+// @TODO
+//  Change the onhover effect from li to indivdual span items

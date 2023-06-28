@@ -385,6 +385,7 @@ function App() {
       ...prevState, productInfo
     ])
     console.log("Your list state length is: ", cartItemList.length)
+    console.log(cartItemList)
   }
 
   function displayCartItems(){
@@ -392,13 +393,18 @@ function App() {
   }
   useEffect(() => {
     console.log(data); // Verify if the data state is updated correctly
+    // const apiData = fetch('https://fakestoreapi.com/products')
+    //         .then(res=>res.json())
+    //         .then(json=>console.log(json));
+    // console.log(apiData)
+
   }, [data]);
 
   return (
     <div className="App">
-      <Nav  numberOfCartItems = {cartItemList.length}/>
-      <Input  dataHandler = {dataHandler} />
-      <Output data = {data} deleteData={deleteData}/>
+      <Nav  numberOfCartItems ={cartItemList.length} showCartItems={cartItemList}/>
+      {/* <Input  dataHandler = {dataHandler} />
+      <Output data = {data} deleteData={deleteData}/> */}
       <Card addToCartHandler= {addToCartHandler} products ={TEMP_PRODUCT_DATA}  />
     </div>
   );
