@@ -379,7 +379,7 @@ function App() {
     console.log("The data to be deleted is " + newList);
   }
 
-  // adds the product infor to the state list cartItemList
+  // adds the product infor to the state list cartItemList which contains the list if items in the cart
   function addToCartHandler(productInfo){
     setcartItemList(prevState => [
       ...prevState, productInfo
@@ -403,6 +403,7 @@ function App() {
   return (
     <div className="App">
       <Nav  numberOfCartItems ={cartItemList.length} showCartItems={cartItemList}/>
+      
       {/* <Input  dataHandler = {dataHandler} />
       <Output data = {data} deleteData={deleteData}/> */}
       <Card addToCartHandler= {addToCartHandler} products ={TEMP_PRODUCT_DATA}  />
