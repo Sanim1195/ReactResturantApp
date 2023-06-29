@@ -22,7 +22,7 @@ const ModalOverlay = (props) => {
 const portalElement = document.getElementById('overlays');
 
 
-export default function Modal() {
+export default function Modal(props) {
 
     return (
        
@@ -31,14 +31,29 @@ export default function Modal() {
         // creating backdrop and overlay and use portal
 
         <>
+        
             {/* return overlays and backdrop here using React-DOM createPortal */}
 
             {ReactDOM.createPortal(<Backdrop/>, portalElement)}
             {ReactDOM.createPortal(<ModalOverlay>
                 <div>
+                    {/* need to add image here */}
+                     
+                    <h1>
+                        {props.productInfo.productName}
+                    </h1>
                     <p>
-                        Product description lies here
+                        Description: 
+                        {props.productInfo.description}
 
+                    </p>
+                    <p>
+                        Category:
+                        {props.productInfo.category}
+                    </p>
+                    <p>
+                        Price: 
+                    {props.productInfo.price}
                     </p>
                 </div> </ModalOverlay>, portalElement)}
 

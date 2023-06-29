@@ -46,9 +46,12 @@
 
         }
 
+        // DISPLAYS the modal when the card div is clicked
         const showModalHandler = (event) => {
+          //logs
             console.log("Clicked on the card");
             console.log(event.target.className)
+          //  COULD BE IMPROVED
             var class_name = event.target.className;
             if(class_name === 'backdrop' || class_name === 'card'){
                 setShowModal( prevState => !prevState);
@@ -58,7 +61,7 @@
             <div className="card" key={props.product.id} onClick={showModalHandler}
                 > 
 
-                    {showModal && <Modal/>}
+                    {showModal && <Modal productInfo = {props.product}/>}
                 {
                     addedToWatchlist && watchlistVisible && <div className="watchListInfo">
                         ❕Item added to watchlist
