@@ -1,0 +1,12 @@
+useRef
+    ref is passed as a prop to the component we want to use useRef to get the data from( (1) let's say we passed a ref prop to the input componenet ). This is useful for cases where you want to measure the DOM node of a component that you are using the hook from.
+    like an input field.
+
+    // In our project we can use the useRef when we add + and - to the cart icon. We can use the useRef to get the current value of the input field and then add or subtract from it.
+    
+    And later on the component we have passed the ref to ( (2) in the input componenet) we wrap the component function with React.fordward ref and pass ref as the second parameter alongside props if there is one ( (3) 
+        const Input = React.forwardRef ((props, ref) => {
+            // where we want to get the data from we set the ref prop as ref(the parameter)
+         <input ref={ref} />
+        });
+    )

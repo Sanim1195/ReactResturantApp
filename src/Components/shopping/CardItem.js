@@ -9,6 +9,13 @@
     // the added to watchlist displays the message on top of the item
     // the watchlistVisible removes the message div after coupke of second
     export default function CardItem(props) {
+
+      const addToCartHandler = event => {
+        event.preventDefault();
+        
+      }
+
+
         const [liked, setLiked] = useState(false);
         const [addedToWatchlist, setAddedToWatchlist] = useState(false);
         const [watchlistVisible, setWatchlistVisible] = useState(false);
@@ -35,16 +42,16 @@
         }
 
 
-        function addToCart() {
-            props.addToCartHandler(props.product);
-            setIsAddedToCart(true);
-            setIsAddedToCartVisible(true);
-            console.log("You have added the following item to your cart: ", props.product)
-            setTimeout(() => {
-                setIsAddedToCartVisible(false)
-            }, 1000);
+        // function addToCart() {
+        //     props.addToCartHandler(props.product);
+        //     setIsAddedToCart(true);
+        //     setIsAddedToCartVisible(true);
+        //     console.log("You have added the following item to your cart: ", props.product)
+        //     setTimeout(() => {
+        //         setIsAddedToCartVisible(false)
+        //     }, 1000);
 
-        }
+        // }
 
         // DISPLAYS the modal when the card div is clicked
         const showModalHandler = (event) => {
@@ -103,7 +110,7 @@
                             🤍
                         </span>}
                     </div>
-                    <div className="cart" onClick={addToCart} >
+                    <div className="cart" onClick={addToCartHandler} >
                         🛒
                     </div>
                 </div>
