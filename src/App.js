@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Input from "./Components/Input"
-import Output from "./Components/Output";
 import Nav from "./Components/Nav";
 import Card from "./Components/shopping/Card";
 import CartProvider from "./Store/CartProvider";
@@ -362,23 +360,9 @@ const TEMP_PRODUCT_DATA = [
 
 
 function App() {
-  const [data, setData] = useState([]);
   const [cartItemList, setcartItemList] = useState([]);
 
-  // adds the user input to the existing list of user input which is stored as a state data
-  function dataHandler(word) {
-    setData((prevData) => [...prevData, word]);
-    console.log("Handle data " + data);
-  }
-
-  //function that deletes the data on click  
-  function deleteData(dataToDelete) {
-    console.log(dataToDelete + " the data stored as to be deleted");
-    const newList = data.filter((item) => item !== dataToDelete);
-    setData(newList);
-    console.log("Yes this data will be removed");
-    console.log("The data to be deleted is " + newList);
-  }
+  
 
   // adds the product infor to the state list cartItemList which contains the list if items in the cart
   function addToCartHandler(productInfo) {
@@ -392,25 +376,12 @@ function App() {
   function displayCartItems() {
 
   }
-  useEffect(() => {
-    console.log(data); // Verify if the data state is updated correctly
-    // const apiData = fetch('https://fakestoreapi.com/products')
-    //         .then(res=>res.json())
-    //         .then(json=>console.log(json));
-    // console.log(apiData)
-
-  }, [data]);
+  
 
   return (
-    // TODO: use useContext to pass the cartItemList to the Nav component
     <CartProvider>
-
       <Nav numberOfCartItems={cartItemList.length} showCartItems={cartItemList} />
-
-      {/* <Input  dataHandler = {dataHandler} />
-      <Output data = {data} deleteData={deleteData}/> */}
       <Card addToCartHandler={addToCartHandler} products={TEMP_PRODUCT_DATA} />
-
     </CartProvider>
   );
 }

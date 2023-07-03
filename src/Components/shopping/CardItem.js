@@ -1,124 +1,126 @@
-    import React from 'react'
-    import { useState, useEffect } from "react";
-    import camera from "../../assets/camera.jpg";
-    import "./Card.css"
-    import Modal from './Modal';
+import React from 'react'
+import { useState, useEffect } from "react";
+import camera from "../../assets/camera.jpg";
+import "./Card.css"
+import Modal from './Modal';
 
 
-    // the liked state changes the color of the heart icon
-    // the added to watchlist displays the message on top of the item
-    // the watchlistVisible removes the message div after coupke of second
-    export default function CardItem(props) {
+// the liked state changes the color of the heart icon
+// the added to watchlist displays the message on top of the item
+// the watchlistVisible removes the message div after coupke of second
+export default function CardItem(props) {
 
-      const addToCartHandler = event => {
-        event.preventDefault();
-        
-      }
+  const addToCartHandler = event => {
+    event.preventDefault();
+    // @to-do: props.onAddToCart(total Number of items).
+    //  That should call the function that adds items to cart.
 
-
-        const [liked, setLiked] = useState(false);
-        const [addedToWatchlist, setAddedToWatchlist] = useState(false);
-        const [watchlistVisible, setWatchlistVisible] = useState(false);
-        const [isAddedTocart, setIsAddedToCart] = useState(false);
-        const [isAddedToCartVisible, setIsAddedToCartVisible] = useState(false);
-        const [showModal, setShowModal] = useState(false);
+  }
 
 
-        // function for heart icons
-        function watchListHandler(event) {
-            event.preventDefault();
-            // set liked to either red or white heart
-            console.log("The product you have added to your watchlist is: ", props.product)
-
-            setLiked(!liked);
-
-            setAddedToWatchlist(!addedToWatchlist)
-            setWatchlistVisible(!watchlistVisible)
-            // displaying the information only for a second before it disappears
-            setTimeout(() => {
-                setWatchlistVisible(false)
-            }, 1000);
-
-        }
+  const [liked, setLiked] = useState(false);
+  const [addedToWatchlist, setAddedToWatchlist] = useState(false);
+  const [watchlistVisible, setWatchlistVisible] = useState(false);
+  const [isAddedTocart, setIsAddedToCart] = useState(false);
+  const [isAddedToCartVisible, setIsAddedToCartVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
 
-        // function addToCart() {
-        //     props.addToCartHandler(props.product);
-        //     setIsAddedToCart(true);
-        //     setIsAddedToCartVisible(true);
-        //     console.log("You have added the following item to your cart: ", props.product)
-        //     setTimeout(() => {
-        //         setIsAddedToCartVisible(false)
-        //     }, 1000);
+  // function for heart icons
+  function watchListHandler(event) {
+    event.preventDefault();
+    // set liked to either red or white heart
+    console.log("The product you have added to your watchlist is: ", props.product)
 
-        // }
+    setLiked(!liked);
 
-        // DISPLAYS the modal when the card div is clicked
-        const showModalHandler = (event) => {
-          //logs
-            console.log("Clicked on the card");
-            console.log(event.target.className)
-          //  COULD BE IMPROVED
-            var class_name = event.target.className;
-            if(class_name === 'backdrop' || class_name === 'card'){
-                setShowModal( prevState => !prevState);
-            }
-        }
-        return (
-            <div className="card" key={props.product.id} onClick={showModalHandler}
-                > 
+    setAddedToWatchlist(!addedToWatchlist)
+    setWatchlistVisible(!watchlistVisible)
+    // displaying the information only for a second before it disappears
+    setTimeout(() => {
+      setWatchlistVisible(false)
+    }, 1000);
 
-                    {showModal && <Modal productInfo = {props.product}/>}
-                {
-                    addedToWatchlist && watchlistVisible && <div className="watchListInfo">
-                        ❕Item added to watchlist
-                    </div>
-                }
-                {
-                    !addedToWatchlist && watchlistVisible && <div className="watchListInfo">
-                        ❕Item removed from watchlist
-                    </div>
-                }
-                {
-                    isAddedTocart && isAddedToCartVisible && <div className="watchListInfo">
-                        ❕Item added to cart
-                    </div>
-                }
-                {/* Div that holds the image  */}
-                <div className="imageCard" >
-                    <img src={camera} alt="camera" />
-                </div>
-                
-                {/* product description */}
-                <span className="productTitle">
-                    {props.product.productName}
-                </span>
-                <span className="productDescription">
-
-                    {props.product.description}
-                </span>
-                <span>
-                    🔽
-                </span>
-
-                {/* div that holds the heart and cart */}
-                <div className="bottomCard">
-                    <div className="heart" onClick={watchListHandler}>
-                        {liked ? <span>
-                            ❤️
-                        </span> : <span>
-                            🤍
-                        </span>}
-                    </div>
-                    <div className="cart" onClick={addToCartHandler} >
-                        🛒
-                    </div>
-                </div>
-            </div>
+  }
 
 
-        )
+  // function addToCart() {
+  //     props.addToCartHandler(props.product);
+  //     setIsAddedToCart(true);
+  //     setIsAddedToCartVisible(true);
+  //     console.log("You have added the following item to your cart: ", props.product)
+  //     setTimeout(() => {
+  //         setIsAddedToCartVisible(false)
+  //     }, 1000);
+
+  // }
+
+  // DISPLAYS the modal when the card div is clicked
+  const showModalHandler = (event) => {
+    //logs
+    console.log("Clicked on the card");
+    console.log(event.target.className)
+    //  COULD BE IMPROVED
+    var class_name = event.target.className;
+    if (class_name === 'backdrop' || class_name === 'card') {
+      setShowModal(prevState => !prevState);
     }
+  }
+  return (
+    <div className="card" key={props.product.id} onClick={showModalHandler}
+    >
+
+      {showModal && <Modal productInfo={props.product} />}
+      {
+        addedToWatchlist && watchlistVisible && <div className="watchListInfo">
+          ❕Item added to watchlist
+        </div>
+      }
+      {
+        !addedToWatchlist && watchlistVisible && <div className="watchListInfo">
+          ❕Item removed from watchlist
+        </div>
+      }
+      {
+        isAddedTocart && isAddedToCartVisible && <div className="watchListInfo">
+          ❕Item added to cart
+        </div>
+      }
+      {/* Div that holds the image  */}
+      <div className="imageCard" >
+        <img src={camera} alt="camera" />
+      </div>
+
+      {/* product description */}
+      <span className="productTitle">
+        {props.product.productName}
+      </span>
+      <span className="productDescription">
+
+        {props.product.description}
+      </span>
+      <span>
+        🔽
+      </span>
+
+      {/* div that holds the heart and cart */}
+      <div className="bottomCard">
+        <div className="heart" onClick={watchListHandler}>
+          {liked ? <span>
+            ❤️
+          </span> : <span>
+            🤍
+          </span>}
+        </div>
+        <div className="cart" onClick={addToCartHandler} >
+          🛒
+        </div>
+      </div>
+    </div>
+
+
+  )
+}
 
 
 

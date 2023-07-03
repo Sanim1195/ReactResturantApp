@@ -6,13 +6,12 @@ export default function Card(props) {
     const addToCartHandler = props.addToCartHandler;
     return (
         <>
-        {/* Div that holds all the cards */}
+            {/* Div that holds all the cards */}
             <div className="cardContainer">
-
                 {
                     props.products.map(product => {
                         return (
-                            <CardItem  key = {product.id} product={product} addToCartHandler={addToCartHandler} />
+                            <CardItem key={product.id} product={product} addToCartHandler={addToCartHandler} />
 
                         )
                     })
