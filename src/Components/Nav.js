@@ -3,9 +3,8 @@ import "./Nav.css";
 import Cart from "./shopping/Cart";
 import CartContext from "../Store/cart-context";
 
-// @Todo
 
-function Nav(props) {
+function Nav() {
     // Now the nav element will be reevaluated by react when the context changes from the cart provider component
     const cartContext = useContext(CartContext); 
 
@@ -36,7 +35,8 @@ function Nav(props) {
                 </li>
                 <li className="cartIcon" onClick={cartListVisibleHandler}>
                     <span>
-                    🛒 {props.numberOfCartItems}
+                    🛒 
+                    {/* {props.numberOfCartItems} */}
 
 
                     {/* context */}
@@ -49,7 +49,8 @@ function Nav(props) {
             </ul>
 
             {
-                isCartListVisible && <Cart showCartItems={props.showCartItems}/>
+                // isCartListVisible && <Cart showCartItems={props.showCartItems}/>
+                isCartListVisible && <Cart/>
             }
         </div>
     )

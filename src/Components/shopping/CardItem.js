@@ -12,8 +12,20 @@ export default function CardItem(props) {
 
   const addToCartHandler = event => {
     event.preventDefault();
+    // numberOfAddedItems is representation of an input field where you could enter the quantity of the product you would like to add to cart and you do that by passing ref and stuff check Notes.txt
+    var numberOfAddedItems = 1
     // @to-do: props.onAddToCart(total Number of items).
     //  That should call the function that adds items to cart.
+
+    // executing the context method to add items to cart
+      props.addToCartHandler(numberOfAddedItems, props.product);
+      // setIsAddedToCart(true);
+      setIsAddedToCartVisible(true);
+      console.log("You have added the following item to your cart: ", props.product)
+      setTimeout(() => {
+          setIsAddedToCartVisible(false)
+      }, 1000);
+
 
   }
 
@@ -31,7 +43,6 @@ export default function CardItem(props) {
     event.preventDefault();
     // set liked to either red or white heart
     console.log("The product you have added to your watchlist is: ", props.product)
-
     setLiked(!liked);
 
     setAddedToWatchlist(!addedToWatchlist)
@@ -82,7 +93,7 @@ export default function CardItem(props) {
         </div>
       }
       {
-        isAddedTocart && isAddedToCartVisible && <div className="watchListInfo">
+         isAddedToCartVisible && <div className="watchListInfo">
           ❕Item added to cart
         </div>
       }

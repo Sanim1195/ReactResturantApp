@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Cart.css';
 import CartItem from './CartItem';
+import CartContext from '../../Store/cart-context';
 
-export default function Cart(props) {
+//The cart function maps over the items array that holds all the items added to cart. 
+
+export default function Cart() {
+
+    const cartCtx = useContext(CartContext);
+
     const totalPrice = () =>{
-        var price = 0;
-    props.showCartItems.forEach(items => {
-            price += items.price;  
-    });
-    return price
+        return cartCtx.totalAmount;
     }
     
 
@@ -16,12 +18,9 @@ export default function Cart(props) {
         <div className='cartItemContainer'>
             <div className='eachItemOnCart'>
                 {
-                    props.showCartItems.map((cartItems) => {
+                    cartCtx.items.map((cartItems) => {
                         return (
                             <CartItem cartItems={cartItems} />
-                            // <h1>
-                            //    { items.productName}
-                            // </h1>
                         )
                     })
                 }

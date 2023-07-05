@@ -360,28 +360,30 @@ const TEMP_PRODUCT_DATA = [
 
 
 function App() {
-  const [cartItemList, setcartItemList] = useState([]);
+  // const [cartItemList, setcartItemList] = useState([]);
 
   
 
-  // adds the product infor to the state list cartItemList which contains the list if items in the cart
-  function addToCartHandler(productInfo) {
-    setcartItemList(prevState => [
-      ...prevState, productInfo
-    ])
-    console.log("Your list state length is: ", cartItemList.length)
-    console.log(cartItemList)
-  }
+  // adds the product to the state list cartItemList which contains the list of items in the cart
+  // function addToCartHandler(productInfo) {
+  //   setcartItemList(prevState => [
+  //     ...prevState, productInfo
+  //   ])
+  //   console.log("Your list state length is: ", cartItemList.length)
+  //   console.log(cartItemList)
+  // }
 
-  function displayCartItems() {
+  // function displayCartItems() {
 
-  }
+  // }
   
 
   return (
     <CartProvider>
-      <Nav numberOfCartItems={cartItemList.length} showCartItems={cartItemList} />
-      <Card addToCartHandler={addToCartHandler} products={TEMP_PRODUCT_DATA} />
+      {/* <Nav numberOfCartItems={cartItemList.length} showCartItems={cartItemList} /> */}
+      <Nav />
+      {/* <Card addToCartHandler={addToCartHandler} products={TEMP_PRODUCT_DATA} /> */}
+      <Card  products={TEMP_PRODUCT_DATA} />
     </CartProvider>
   );
 }

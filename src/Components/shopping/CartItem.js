@@ -9,10 +9,10 @@ export default function cartItem (props) {
             </div>
             <div>
                 <span>
-                    Quantity
+                    {props.cartItems.quantity} x 
                 </span>
                 <span>
-                    {props.cartItems.productName}
+                    {props.cartItems.name}
                 </span>
                 <span>
                     {props.cartItems.price}

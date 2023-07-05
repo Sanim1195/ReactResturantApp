@@ -25,7 +25,6 @@ const cartReducer = (state, action) => {
 };
 
 
-
 // This component manages the cart context data nd provide that data to all componenets that want access to it 
 export default function CartProvider(props) {
 
