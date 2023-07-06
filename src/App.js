@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Nav from "./Components/Nav";
 import Card from "./Components/shopping/Card";
 import CartProvider from "./Store/CartProvider";
@@ -359,30 +358,11 @@ const TEMP_PRODUCT_DATA = [
 ];
 
 
-function App() {
-  // const [cartItemList, setcartItemList] = useState([]);
-
-  
-
-  // adds the product to the state list cartItemList which contains the list of items in the cart
-  // function addToCartHandler(productInfo) {
-  //   setcartItemList(prevState => [
-  //     ...prevState, productInfo
-  //   ])
-  //   console.log("Your list state length is: ", cartItemList.length)
-  //   console.log(cartItemList)
-  // }
-
-  // function displayCartItems() {
-
-  // }
-  
+function App() { 
 
   return (
     <CartProvider>
-      {/* <Nav numberOfCartItems={cartItemList.length} showCartItems={cartItemList} /> */}
       <Nav />
-      {/* <Card addToCartHandler={addToCartHandler} products={TEMP_PRODUCT_DATA} /> */}
       <Card  products={TEMP_PRODUCT_DATA} />
     </CartProvider>
   );

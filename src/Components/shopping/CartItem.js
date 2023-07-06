@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function cartItem (props) {
+export default function cartItem(props) {
     return (
         <div className="cartItem">
             <div>
@@ -9,7 +9,7 @@ export default function cartItem (props) {
             </div>
             <div>
                 <span>
-                    {props.cartItems.quantity} x 
+                    {props.cartItems.quantity} x
                 </span>
                 <span>
                     {props.cartItems.name}

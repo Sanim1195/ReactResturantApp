@@ -6,17 +6,18 @@ import CartContext from "../Store/cart-context";
 
 function Nav() {
     // Now the nav element will be reevaluated by react when the context changes from the cart provider component
-    const cartContext = useContext(CartContext); 
+    const cartContext = useContext(CartContext);
 
     // transforms an array of data into a single value 
-    const numberOfCartItems = cartContext.items.reduce((currentNumber , item) => {
-        return currentNumber + item.amount;
-    },0);
+    const numberOfCartItems = cartContext.items.reduce((currentNumber, item) => {
+        return currentNumber + item.quantity;
+    }, 0);
+    // console.log(numberOfCartItems)
 
     const [isCartListVisible, setIsCartListVisible] = useState(false)
 
     // Controls the visibility of the div that hold the cart items 😁
-    function cartListVisibleHandler(){
+    function cartListVisibleHandler() {
         console.log("cart Clicked !!");
         setIsCartListVisible(!isCartListVisible);
     }
@@ -35,22 +36,15 @@ function Nav() {
                 </li>
                 <li className="cartIcon" onClick={cartListVisibleHandler}>
                     <span>
-                    🛒 
-                    {/* {props.numberOfCartItems} */}
-
-
-                    {/* context */}
-                    {numberOfCartItems}
-
-                    
+                        🛒
+                        {numberOfCartItems}
 
                     </span>
                 </li>
             </ul>
 
             {
-                // isCartListVisible && <Cart showCartItems={props.showCartItems}/>
-                isCartListVisible && <Cart/>
+                isCartListVisible && <Cart />
             }
         </div>
     )

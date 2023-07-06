@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import camera from "../../assets/camera.jpg";
 import "./Card.css"
 import Modal from './Modal';
@@ -33,7 +33,7 @@ export default function CardItem(props) {
   const [liked, setLiked] = useState(false);
   const [addedToWatchlist, setAddedToWatchlist] = useState(false);
   const [watchlistVisible, setWatchlistVisible] = useState(false);
-  const [isAddedTocart, setIsAddedToCart] = useState(false);
+  // const [isAddedTocart, setIsAddedToCart] = useState(false);
   const [isAddedToCartVisible, setIsAddedToCartVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
 

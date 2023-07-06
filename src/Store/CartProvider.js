@@ -11,13 +11,38 @@ const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
 
     // grouping same items together and updating the total price of cart
-    // items[] inside the defaultCartState.
+    // items[] inside the defaultCartState.  
 
     //  Action.item holds the actual state list while state.items is the temporary array where       we will store our ist af cart items 
-    const updatedItems = state.items.concat(action.item);
-    const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount
+
+
+    const updatedTotalAmount = state.totalAmount + (action.item.price * action.item.quantity);
+    // getting the index of the cart item if it already exists in the items list
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.item.id
+    );
+
+    const existingCartItem = state.items[existingCartItemIndex];
+    let updatedItem;  //Holds the new object with increased quantity 
+    let updatedItems; //used to access the index of the cart item that needs to be updated and updates it 
+
+    if (existingCartItem) {
+      updatedItem = {
+        ...existingCartItem,
+        quantity: existingCartItem.quantity + action.item.quantity
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+    } else {
+      updatedItem = { ...action.item };
+      updatedItems = state.items.concat(updatedItem);
+
+    }
+
+
+
     return {
-      items:updatedItems,
+      items: updatedItems,
       totalAmount: updatedTotalAmount
     }
   }
@@ -32,6 +57,7 @@ export default function CartProvider(props) {
 
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: 'ADD', item: item });
+    console.log(item)
   };
 
   const removeItemFromCartHandler = (id) => {

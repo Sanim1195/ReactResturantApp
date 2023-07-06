@@ -9,10 +9,12 @@ export default function Cart() {
 
     const cartCtx = useContext(CartContext);
 
-    const totalPrice = () =>{
+    const totalPrice = () => {
+        console.log(cartCtx.totalAmount);
         return cartCtx.totalAmount;
+        
     }
-    
+
 
     return (
         <div className='cartItemContainer'>
@@ -27,7 +29,7 @@ export default function Cart() {
             </div>
             <div className='bottomContainer'>
                 <span>Total</span>
-                <span> { `$ ` + totalPrice().toFixed(2)}</span>
+                <span> {`$ ` + totalPrice().toFixed(2)}</span>
             </div>
         </div>
     )
